@@ -10,6 +10,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    //  Used ModalRoute() method to get data from context in loading screen
     data = ModalRoute.of(context).settings.arguments;
     print(data);
 

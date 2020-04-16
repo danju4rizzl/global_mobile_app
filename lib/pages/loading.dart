@@ -12,6 +12,7 @@ class _LoadingState extends State<Loading> {
         location: 'Johannesburg', flag: 'test.png', url: 'Africa/Johannesburg');
 
     await instance.getTime();
+    // Using the pushReplacementNamed() method to push context to the home screen
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'flat': instance.flag,
