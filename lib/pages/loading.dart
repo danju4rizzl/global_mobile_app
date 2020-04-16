@@ -7,13 +7,13 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  String time = 'loading';
+  String time = 'Loading...';
 
   void setUpGlobalTime() async {
     GlobalTime instance = GlobalTime(
         location: 'Johannesburg', flag: 'test.png', url: 'Africa/Johannesburg');
 
-    await instance.getTIme();
+    await instance.getTime();
     print(instance.time);
     setState(() {
       time = instance.time;
@@ -31,7 +31,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(50.0),
-        child: Text(time),
+        child: Text(time, style: TextStyle(fontSize: 30.0)),
       ),
     );
   }

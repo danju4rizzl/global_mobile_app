@@ -1,8 +1,9 @@
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'dart:convert';
 
-class GlobalTime {
+import 'package:http/http.dart';
 
+class GlobalTime {
   String location; // location name for the UI
   String time; // The time in that location
   String flag; // url to an asset flag icon
@@ -10,24 +11,23 @@ class GlobalTime {
 
   GlobalTime({this.location, this.flag, this.url});
 
- Future<void> getTIme() async {
-    Response response = await get('http://worldtimeapi.org/api/timezone/Africa/$url');
+  Future<void> getTime() async {
+    // make the request
+    Response response = await get('https://worldtimeapi.org/api/timezone/$url');
     Map data = jsonDecode(response.body);
-//      print(data);
+    // print(data);
 
-//      Get properties from data
+    // get properties from json
+    String datetime = data['datetime'];
+    String offset = data['utc_offset'].substring(1, 3);
 
-    String dateTime = data['datetime'];
-    String offset = data['utc_offset'].substring(1,3);
-//    print(dateTime);
-//    print(offset);
-//      Create a dateTime Object to make it readable to users
-
-    DateTime now = DateTime.parse(dateTime);
+    // create DateTime object
+    DateTime now = DateTime.parse(datetime);
     now = now.add(Duration(hours: int.parse(offset)));
 
+    print(now);
 
-    // Sets the time property
+    // set the time property
     time = now.toString();
   }
 }
