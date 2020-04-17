@@ -14,11 +14,12 @@ class _LoadingState extends State<Loading> {
 
     await instance.getTime();
     // Using the pushReplacementNamed() method to push context to the home screen
-    // Navigator.pushReplacementNamed(context, '/home', arguments: {
-    //   'location': instance.location,
-    //   'flat': instance.flag,
-    //   'time': instance.time
-    // });
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flat': instance.flag,
+      'time': instance.time,
+      'isDayTime': instance.isDayTime,
+    });
   }
 
   @override
