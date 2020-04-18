@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
     print(data);
 
 // Set background
-// TODO fix the bgImage by reading the img documentation or decoration docs
     String bgImage = data['isDayTime'] ? 'day.png' : 'night.png';
 
     var bgBar = bgImage == 'night.png'
